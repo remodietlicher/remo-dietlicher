@@ -7,7 +7,7 @@ import {
   login,
 } from "@inrupt/solid-client-authn-browser";
 import { useEffect, useState } from "react";
-import { FormComponent, FormRenderer } from "object-forms";
+import { ObjectForm, FormRenderer } from "object-forms";
 import { WorkItem } from "./model/WorkItem";
 
 const App: React.FC = () => {
@@ -44,7 +44,7 @@ const App: React.FC = () => {
   return (
     <>
       <button onClick={solidLoginHandler}>login</button>
-      <FormComponent meta={meta}></FormComponent>
+      <ObjectForm meta={meta}></ObjectForm>
     </>
   );
 };
