@@ -2,9 +2,9 @@
   "compilerOptions": {
     "sourceMap": true,
     "noImplicitAny": true,
-    "module": "es2020",
-    "target": "es2020",
+    "module": "ESNext",
     "moduleResolution": "node",
+    "esModuleInterop": true,
     "jsx": "react",
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
