@@ -36,12 +36,10 @@ const App: React.FC = () => {
     });
   }, []);
 
-  console.log(webId);
-
   return (
     <>
       <button onClick={solidLoginHandler}>login</button>
-      <ClassForm target={WorkItem} />
+      {webId && <ClassForm target={WorkItem} />}
     </>
   );
 };

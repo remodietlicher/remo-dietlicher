@@ -6,7 +6,7 @@ module.exports = {
   mode: "development",
   entry: "./src/index.tsx",
 
-  devtool: "source-map",
+  devtool: "eval-source-map",
   module: {
     rules: [
       {
