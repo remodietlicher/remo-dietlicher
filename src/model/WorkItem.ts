@@ -2,7 +2,11 @@ import { Field, Form } from "class-forms";
 import { Edge, Node } from "graphorm";
 import { Company } from "./Company";
 
-@Form()
+const onSubmitHandler = (data) => {
+  console.log("Submitting data for WorkItem class:");
+  console.log(data);
+};
+@Form(onSubmitHandler)
 @Node("http://dbpedia.org/ontology/Work")
 export class WorkItem {
   @Field({ primary: true })

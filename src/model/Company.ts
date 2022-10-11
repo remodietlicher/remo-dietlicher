@@ -32,7 +32,12 @@ const asyncFetcher2 = async () => {
   );
   return results;
 };
-@Form({ valueFetcher: asyncFetcher2 })
+
+const onSubmitHandler = (data) => {
+  console.log("Submitting data for Company class:");
+  console.log(data);
+};
+@Form(onSubmitHandler, { valueFetcher: asyncFetcher2 })
 @Node("<http://dbpedia.org/ontology/Company>")
 export class Company {
   @Field({ primary: true })
