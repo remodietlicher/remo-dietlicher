@@ -9,6 +9,7 @@ import {
 import { useEffect, useState } from "react";
 import { ClassForm } from "class-forms";
 import { WorkItem } from "./model/WorkItem";
+import { Company } from "./model/Company";
 
 const App: React.FC = () => {
   const engine = new QueryEngine();
@@ -39,7 +40,7 @@ const App: React.FC = () => {
   return (
     <>
       <button onClick={solidLoginHandler}>login</button>
-      {webId && <ClassForm target={WorkItem} />}
+      {webId && <ClassForm target={Company} />}
     </>
   );
 };

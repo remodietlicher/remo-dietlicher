@@ -33,17 +33,41 @@ const asyncFetcher2 = async () => {
   return results;
 };
 
-const onSubmitHandler = (data) => {
+const onSubmitHandler = async (data) => {
   console.log("Submitting data for Company class:");
-  console.log(data);
+  const model = new DataModel({
+    type: "comunica",
+    nodes: [Company],
+  });
+
+  model.buildMetadatas();
+  model.createNodeManager();
+
+  const node = new Company(data["name"], data["address"]);
+
+  await model.manager.save(
+    node,
+    "https://fornax.solidcommunity.net/class-form-test.ttl",
+    {
+      session: getDefaultSession(),
+      baseIRI: "https://fornax.solidcommunity.net/class-form-test",
+    }
+  );
 };
 @Form(onSubmitHandler, { valueFetcher: asyncFetcher2 })
 @Node("<http://dbpedia.org/ontology/Company>")
 export class Company {
   @Field({ primary: true })
-  @Edge("<http://xmlns.com/foaf/0.1/name>")
+  @Edge("<http://xmlns.com/foaf/0.1/name>", {
+    primary: true,
+  })
   name: string;
   @Field()
   @Edge("<http://schema.org/address>")
   address: string;
+
+  constructor(name: string, address: string) {
+    this.name = name;
+    this.address = address;
+  }
 }

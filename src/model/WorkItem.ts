@@ -1,10 +1,26 @@
+import { getDefaultSession } from "@inrupt/solid-client-authn-browser";
 import { Field, Form } from "class-forms";
-import { Edge, Node } from "graphorm";
+import { DataModel, Edge, Node } from "graphorm";
 import { Company } from "./Company";
 
-const onSubmitHandler = (data) => {
-  console.log("Submitting data for WorkItem class:");
-  console.log(data);
+const onSubmitHandler = async (data) => {
+  console.log("Submitting data for Company class:");
+  const model = new DataModel({
+    type: "comunica",
+    nodes: [WorkItem],
+  });
+
+  model.buildMetadatas();
+  model.createNodeManager();
+
+  const node = undefined;
+
+  console.log(getDefaultSession().info);
+  await model.manager.save(
+    node,
+    ["https://fornax.solidcommunity.net/class-form-test.ttl"],
+    { session: getDefaultSession() }
+  );
 };
 @Form(onSubmitHandler)
 @Node("http://dbpedia.org/ontology/Work")
