@@ -10,9 +10,6 @@ const onSubmitHandler = async (data) => {
     nodes: [WorkItem],
   });
 
-  model.buildMetadatas();
-  model.createNodeManager();
-
   const node = undefined;
 
   console.log(getDefaultSession().info);

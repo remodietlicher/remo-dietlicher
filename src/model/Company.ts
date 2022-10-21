@@ -21,9 +21,6 @@ const asyncFetcher2 = async () => {
     nodes: [Company],
   });
 
-  model.buildMetadatas();
-  model.createNodeManager();
-
   console.log(getDefaultSession().info);
   const results: Company[] | undefined = await model.manager.findAll(
     Company,
@@ -34,14 +31,10 @@ const asyncFetcher2 = async () => {
 };
 
 const onSubmitHandler = async (data) => {
-  console.log("Submitting data for Company class:");
   const model = new DataModel({
     type: "comunica",
     nodes: [Company],
   });
-
-  model.buildMetadatas();
-  model.createNodeManager();
 
   const node = new Company(data["name"], data["address"]);
 
