@@ -7,7 +7,6 @@ const onSubmitHandler = async (data) => {
   console.log("Submitting data for Company class:");
   const model = new DataModel({
     type: "comunica",
-    nodes: [WorkItem],
   });
 
   const node = undefined;
