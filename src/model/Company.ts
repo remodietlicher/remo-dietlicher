@@ -18,7 +18,6 @@ const asyncFetcher = async () => {
 const asyncFetcher2 = async () => {
   const model = new DataModel({
     type: "comunica",
-    nodes: [Company],
   });
 
   console.log(getDefaultSession().info);
@@ -33,7 +32,6 @@ const asyncFetcher2 = async () => {
 const onSubmitHandler = async (data) => {
   const model = new DataModel({
     type: "comunica",
-    nodes: [Company],
   });
 
   const node = new Company(data["name"], data["address"]);
